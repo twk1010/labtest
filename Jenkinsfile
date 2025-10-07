@@ -1,16 +1,9 @@
 pipeline {
     agent any
-    parameters {
-        choice(
-            name: 'BRANCH',
-            choices: ['main', 'dev', 'bug_fixes'],
-            description: 'Select which branch to build'
-        )
-    }
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: "${params.BRANCH}", url: 'git@github.com:twk1010/labtest.git'
+                git branch: 'master', url: 'git@github.com:twk1010/labtest.git'
             }
         }
 
